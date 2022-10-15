@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云标签</title>
+    <link rel="stylesheet" href="/static/bootstrap-5.1.3-dist/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="/static/css/reset.css"> -->
+    <link rel="stylesheet" href="/static/iconfont/iconfont.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+
+<body>
+    <!-- 顶部导航 -->
+    <nav class="navbar navbar-expand-md navbar-dark transparent-navbar fixed-top"
+        style="background-color: rgb(51,51,51,0.8);">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/static/images/头像.jpg" alt="" width="30" height="28" class="d-inline-block align-text-top">
+                个人博客
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" aria-current="page" href="/static/index.html">
+                        <span class="iconfont icon-zhuye"></span>首页
+                    </a>
+                    <a class="nav-link" href="/static/notes.html">随笔</a>
+                    <a class="nav-link" href="/static/article.html">文章</a>
+                    <a class="nav-link active" href="/static/tag.html">标签云</a>
+                    <a class="nav-link" href="/static/words.html">留言</a>
+                    <a class="nav-link" href="/static/about.html">关于</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- 顶部导航结束 -->
+
+    <!-- 占位导航栏 -->
+    <div style="height:54px;" class="head-sm-height"></div>
+    <!-- 占位导航栏结束 -->
+
+    <!-- 主体 -->
+    <div class="container">
+        <div class="row mt-3">
+            <!-- 主体左边部分 -->
+            <div class="col-12 col-md-9 p-x-0">
+                <!-- 顶部的当前位置 -->
+                <div class="bg-white p-1 pe-2 rounded">
+                    <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';">
+                        <ol class="breadcrumb m-0 justify-content-end color-153">
+                            <li class="me-2">当前位置:</li>
+                            <li class="breadcrumb-item"><a href="/static/index.html" class="no-decoration color-153">首页</a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="/static/tag.html" class="no-decoration color-153">标签云</a>
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+                <!-- 当前位置结束 -->
+
+                <!-- 站内标签 -->
+                <div class="p-2 bg-white shandow-sm rounded mt-3 box-shoadow animate-left-card">
+                    <h5 class="d-flex justify-content-between border-dashed pb-2 fw700 fs-18">
+                        <span>标签云-站内</span>
+                    </h5>
+                    <div class="panel-body label">
+                        <!-- 标签-->
+                        <a href="#"><span class="btn btn-bbq-info fs-14">二级域名</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">缩略图轮播</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">前端开发</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">PbootCMS</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">TAB切换</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">建站教程</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">导航条</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">前端布局</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">Pb二级导航</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">底部span</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">pbootcms</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">Pboot搜索</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">面试题</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">jQuery基础</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">算法</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">HTML5</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">HTML综合</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">HTML路径</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">网站</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">SEO优化</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">表单</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">弹性盒模型</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">搜索</span></a>
+                    </div>
+                </div>
+                <!-- 站内标签结束 -->
+                <!-- 好友位 -->
+                <div class="p-2 bg-white shandow-sm rounded mt-3 box-shoadow animate-left-card">
+                    <h5 class="d-flex justify-content-between border-dashed pb-2 fw700 fs-18">
+                        <span>友链-好友位</span>
+                    </h5>
+                    <div class="panel-body label">
+                        <!-- 标签-->
+                        <a href="#"><span class="btn btn-bbq-info fs-14">网站源码</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">云服务器</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">外链论坛</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">PbootCMS</span></a>
+                    </div>
+                </div>
+                <!-- 好友位结束 -->
+                <!-- 站外链接 -->
+                <div class="p-2 bg-white shandow-sm rounded mt-3 box-shoadow animate-left-card">
+                    <h5 class="d-flex justify-content-between border-dashed pb-2 fw700 fs-18">
+                        <span>前端学习-站外链接</span>
+                    </h5>
+                    <div class="panel-body label">
+                        <!-- 标签-->
+                        <a href="#"><span class="btn btn-bbq-info fs-14">网站源码</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">云服务器</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">外链论坛</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">PbootCMS</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">网站源码</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">云服务器</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">外链论坛</span></a>
+                        <a href="#"><span class="btn btn-bbq-info fs-14">PbootCMS</span></a>
+                    </div>
+                </div>
+                <!-- 站外链接结束 -->
+            </div>
+            <!-- 主体右边部分 -->
+            <div class="col-12 col-md-3 hidden">
+                <!-- 联系方式 -->
+                <div class="p-2 bg-white shandow-sm rounded box-shoadow animate-right-card">
+                    <h5 class="d-flex justify-content-between border-dashed pb-2">
+                        <span>联系方式</span>
+                    </h5>
+                    <p class="my-2 f-14"><span class="fw-bold">名称</span>：哲理源</p>
+                    <p class="my-2 f-14"><span class="fw-bold">地址</span>：浙江省宁波市</p>
+                    <p class="my-2 f-14"><span class="fw-bold">电话</span>：156xxxx0216</p>
+                    <p class="my-2 f-14"><span class="fw-bold">邮箱</span>：hzy@gmail.com</p>
+                    <p class="my-2 f-14"><span class="fw-bold">QQ</span>：2029886425</p>
+                </div>
+                <!-- 选项卡 -->
+                <div class="p-2 bg-white shandow-sm rounded mt-3 box-shoadow animate-right-card">
+                    <h5 class="d-flex justify-content-between border-dashed">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link btn-sm bg-light active" id="pills-home-tab"
+                                    data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab"
+                                    aria-controls="pills-home" aria-selected="true">热门文章</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link btn-sm bg-light" id="pills-profile-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-profile" type="button" role="tab"
+                                    aria-controls="pills-profile" aria-selected="false">随笔推荐</button>
+                            </li>
+                        </ul>
+                    </h5>
+
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                            aria-labelledby="pills-home-tab">
+                            <ul class="recommend-list">
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> jQuery简单的基础操作···</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 54次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> 域名解析以及二级域···</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 36次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> 前端中经常出现的算···</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 35次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> 原生JS实现轮播图带···</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 30次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> web前端开发基础环境···</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 28次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> PbootCMS中常见使用···</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 26次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> HTML综合内容</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 21次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> 网站建站教程</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 20次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> 原生js实现tab栏切换···</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 18次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> HTML5新标签和属性</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 15次
+                                        </em>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                            aria-labelledby="pills-profile-tab">
+                            <ul class="recommend-list">
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> 深入理解es6···</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 54次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> javascript高级程序设计···</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 36次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> jQuery实现轮播图···</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 35次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> 原生JS实现轮播图带···</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 30次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> web前端开发基础环境···</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 28次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> PbootCMS中常见使用···</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 26次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> HTML综合内容</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 21次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> 网站建站教程</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 20次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> 原生js实现tab栏切换···</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 18次
+                                        </em>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="recommend-list-a">
+                                        <span class="text-truncate"> HTML5新标签和属性</span>
+                                        <em>
+                                            <span class="iconfont icon-yanjing"></span> 15次
+                                        </em>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- 关键字搜索 -->
+                <div class="p-2 bg-white shandow-sm rounded mt-3 box-shoadow animate-right-card">
+                    <h5 class="d-flex justify-content-between border-dashed pb-2">
+                        <span>关键字搜索</span>
+                    </h5>
+                    <!-- 搜索 -->
+                    <div class="search-body mt-2">
+                        <!-- 搜索-->
+                        <form class="form-inline" action="javascript:;" method="get">
+                            <div class="form-group">
+                                <input type="text" name="keyword" class="form-control" placeholder="请输入关键字">
+                                <button type="submit" class="btn btn-success">搜索</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- 关于 -->
+                <div class="p-2 bg-white shandow-sm rounded mt-3 box-shoadow animate-right-card">
+                    <h5 class="d-flex justify-content-between border-dashed pb-2">
+                        <span>关于</span>
+                    </h5>
+                    <p class="my-2 f-14"><span class="fw-bold">博客名称</span>：哲理源博客</p>
+                    <p class="my-2 f-14"><span class="fw-bold">开博时间</span>：2022-xx-xx</p>
+                    <p class="my-2 f-14"><span class="fw-bold">后台系统</span>：xxx</p>
+                    <p class="my-2 f-14"><span class="fw-bold">文章统计</span>：13篇 <a href="javascript:;"
+                            class="active-red no-decoration">随笔</a> |
+                        9篇 <a href="javascript:;" class="active-red no-decoration">文章</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer text-secondary bg-light mt-3 ">
+        <div class="copyright border-top lh-3 text-center">
+            <p class="f-14">Copyright © 2018-2022 Reserved.&nbsp; 备案号：<a href="https://beian.miit.gov.cn/"
+                    target="_blank" class="no-decoration">豫ICP备xxxxxxxx号</a> <a
+                    href="https://www.yingzia.com/pbootcms261/sitemap.xml" target="_blank" class="no-decoration">xxx</a>
+                技术支持: <a href="https://www.91084.com/" target="_blank" class="no-decoration">bootstrap</a></p>
+            <p class="f-14 "><span id="span_dt_dt">哲理源博客已运行:125天22小时56分53秒</span></p>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js" defer></script>
+    <script src="/static/bootstrap-5.1.3-dist/js/bootstrap.bundle.js" defer></script>
+    <script src="/static/js/main.js" defer></script>
+</body>
+
+</html>

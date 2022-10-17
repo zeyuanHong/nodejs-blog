@@ -1,13 +1,12 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.readLoginData = void 0;
-const mysqlInstance_1 = __importDefault(require("../mysql/mysqlInstance"));
+exports.saveData = exports.readLoginData = void 0;
 const sqlTool_1 = require("../tool/sqlTool");
-async function readLoginData(user, callBack) {
-    let data = await (0, sqlTool_1.doSql)(`select * from users where email='${user.email}' and password='${user.password}'`, mysqlInstance_1.default);
-    callBack(data);
+function readLoginData(user) {
+    return (0, sqlTool_1.doSqlParam)(`select * from users where email=? and password=?`, [user.email, user.password]);
 }
 exports.readLoginData = readLoginData;
+function saveData(user) {
+    return (0, sqlTool_1.doSqlParam)('insert into users(email,password,nick,introduction) values(?,?,?,?)', [user.email, user.password, user.nick, user.introduction]);
+}
+exports.saveData = saveData;

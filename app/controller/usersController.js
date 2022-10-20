@@ -36,5 +36,38 @@ function default_1(app) {
         }
         res.json({ success: true, message: "添加用户成功" });
     });
+    // 获取用户列表
+    app.get('/api/getUsers', async (req, res) => {
+        const { page } = req.query;
+        // console.log(user)
+        const { success, data } = await (0, users_1.getDataList)(Number(page) || 1); //有错误就默认第一页
+        if (!success) {
+            res.json({ success: false, message: data.message });
+            return;
+        }
+        res.json({ success: true, data });
+    });
+    // 删除用户
+    app.get('/api/delUser', async (req, res) => {
+        // console.log(req.query)
+        const id = req.query.id;
+        const { success, data } = await (0, users_1.delData)(id); // req.query获取查询参数
+        if (!success) {
+            res.json({ success: false, message: data.message });
+            return;
+        }
+        res.json({ success: true, data });
+    });
+    // 更新用户
+    app.post('/api/upDateUser', async (req, res) => {
+        // console.log(req.query)
+        const user = req.body;
+        const { success, data } = await (0, users_1.updateData)(user); // req.query获取查询参数
+        if (!success) {
+            res.json({ success: false, message: data.message });
+            return;
+        }
+        res.json({ success: true, message: "更新成功" });
+    });
 }
 exports.default = default_1;

@@ -6,6 +6,7 @@ const fs = require('fs');
 function default_1(app, direname) {
     app.post("/api/saveBlog", async function (req, res) {
         const blog = req.body;
+        // console.log(blog)
         blog.uid = req.uid; // 从req里面取出token解析出来的用户id
         const { success, data } = await (0, blog_1.saveData)(blog);
         if (!success) {
@@ -40,6 +41,16 @@ function default_1(app, direname) {
             return;
         }
         res.json({ success: true, data });
+    });
+    // 更新博客
+    app.post("/api/updateBlog", async function (req, res) {
+        const blog = req.body;
+        const { success, data } = await (0, blog_1.updateData)(blog);
+        if (!success) {
+            res.json({ success: false, message: data.message });
+            return;
+        }
+        res.json({ success: true, message: "博客更新成功" });
     });
     // 删除博客
     app.post("/api/delBlog", async function (req, res) {

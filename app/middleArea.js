@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 function middle(app) {
     // app.use可以看做一个路由守卫，请求会先进入use方法，如果use方法返回false，则不会进入下一个方法。如果执行next()可以进入下一个方法，一般在这里可以做一些请求拦截，比如token校验。
     // 设置不需要校验token的url路径(白名单)
-    let whiteUrl = /(\/api\/login)|(^\/\??[\w=]*$)|(\/list\.html\??[\w=]*)|(\/detail\.html\??[\w=]*)/;
+    let whiteUrl = /(\/api\/login)|(^\/\??[\w=]*$)|(\/article\.html\??[\w=]*)|(\/details\.html\??[\w=]*)/;
     app.use(function (req, res, next) {
         // 如果符号白名单路由，则直接进入下一个方法
         if (whiteUrl.test(req.url)) {

@@ -40,7 +40,7 @@ async function handleFun() {
     avatar varchar(255),
     score int default 0,
     introduction varchar(500)
-  )`, connection);
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4`, connection);
     if (!data.success) {
         console.log("user:" + data.data.message);
         connection.destroy(); //  关闭链接
@@ -64,7 +64,7 @@ async function handleFun() {
     blog_type varchar(10),
     read_ int,
     create_time timestamp
-  )ENGINE=InnoDB DEFAULT CHARSET=utf8`, connection);
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4`, connection);
     if (!data.success) {
         console.log("blogs:" + data.data.message);
         connection.destroy(); //  关闭链接
@@ -77,7 +77,7 @@ async function handleFun() {
     blog_id varchar(100) not null,
     content varchar(255),
     create_time timestamp
-  )ENGINE=InnoDB DEFAULT CHARSET=utf8`, connection);
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4`, connection);
     if (!data.success) {
         console.log("articles:" + data.data.message);
         connection.destroy(); //  关闭链接

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDataOne = exports.getDataTotal = exports.getDataList = exports.delData = exports.saveData = void 0;
+exports.getBlogDataByOrderCount = exports.getBlogDataByOrder = exports.updateData = exports.getDataOne = exports.getDataTotal = exports.getDataList = exports.delData = exports.saveData = void 0;
 const sqlTool_1 = require("../tool/sqlTool");
 // 添加数据
 function saveData(blog) {
@@ -27,3 +27,26 @@ function getDataOne(id) {
     return (0, sqlTool_1.doSqlParam)(`select * from blogs where id=${id}`, []);
 }
 exports.getDataOne = getDataOne;
+// 更新博客
+function updateData(blog) {
+    return (0, sqlTool_1.doSqlParam)(`update blogs set title=?,introduction=?,img=?,content=?,blog_type=? where id=?`, [blog.title, blog.introduction, blog.img, blog.content, blog.blog_type, blog.id]);
+}
+exports.updateData = updateData;
+// 多条件读取博客分页数据
+function getBlogDataByOrder(orderType = "id", blog_type = "", page = 1, pageSize = 5) {
+    let whereStr = "";
+    if (blog_type) {
+        whereStr = `where blog_type='${blog_type}'`;
+    }
+    return (0, sqlTool_1.doSqlParam)(`select id,title,blog_type,read_,introduction,img,create_time from blogs ${whereStr} order by ${orderType} DESC limit ${(page - 1) * pageSize},${pageSize}`, []);
+}
+exports.getBlogDataByOrder = getBlogDataByOrder;
+// 查询博客的数量
+function getBlogDataByOrderCount(blog_type = "") {
+    let whereStr = "";
+    if (blog_type) {
+        whereStr = `where blog_type=${blog_type}`;
+    }
+    return (0, sqlTool_1.doSqlParam)(`select count(id) as total from blogs ${whereStr}`, []);
+}
+exports.getBlogDataByOrderCount = getBlogDataByOrderCount;

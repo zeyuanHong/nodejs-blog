@@ -19,15 +19,15 @@
                     <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';">
                         <ol class="breadcrumb m-0 color-153">
                             <li class="me-2">当前位置:</li>
-                            <li class="breadcrumb-item"><a href="/static/index.html" class="no-decoration color-153">首页</a></li>
-                            <li class="breadcrumb-item"><a href="/static/article.html" class="no-decoration color-153"><%= blogType %></a></li>
+                            <li class="breadcrumb-item"><a href="/" class="no-decoration color-153">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/1/article.html" class="no-decoration color-153"><%= blogType %></a></li>
                         </ol>
                     </nav>
                 </div>
                 <!-- 当前位置结束 -->
                 <!-- 分类导航 -->
                 <div class="mt-3">
-                    <% if(active === "list技术"){ %>
+                    <% if(active === "article1"){ %>
                     <button type="button" class="btn btn-success">
                       技术<span class="badge bg-light text-dark"><%= total1 %></span></button>
                     <% } else {%>
@@ -35,7 +35,7 @@
                       技术<span class="badge bg-success"><%= total1 %></span></button>
                     <% } %>
             
-                    <% if(active === "list随笔"){ %>
+                    <% if(active === "article2"){ %>
                       <button type="button" class="btn btn-success">
                         随笔<span class="badge bg-light text-dark"><%= total2 %></span></button>
                       <% } else {%>
@@ -43,7 +43,7 @@
                         随笔<span class="badge bg-success"><%= total2 %></span></button>
                       <% } %>
                     
-                    <% if(active === "list笔记"){ %>
+                    <% if(active === "article3"){ %>
                     <button type="button" class="btn btn-success">
                       笔记 <span class="badge bg-light text-dark"><%= total3 %></span></button>
                     <% } else {%>
@@ -62,7 +62,7 @@
                             <h5 class="card-title"><a href="./detail.html"
                                     class="no-decoration link-dark fw700 fs-5"><%= item.title%></a>
                             </h5>
-                            <div class="col-md-4 card-bgimg rounded d-none d-md-block">
+                            <div class="col-md-4 card-bgimg rounded d-none d-md-block min-height143">
                                 <a href="#" style="background-image:url('<%= item.img %>')"></a>
                             </div>
                             <div class="col-md-4 card-bgimg rounded p-3  d-md-none">
@@ -74,7 +74,7 @@
                                         <%= item.introduction%>
                                     </p>
                                     <p class="mb-2">
-                                        <a href="#" class="f-12 text-dark bg-light no-decoration fw-bold"><%= item.blog_type%></a>
+                                        <a href="#" class="f-12 text-dark bg-light no-decoration fw-bold"><%= BLOG_TYPE[item.blog_type] %></a>
                                     </p>
                                     <p class="card-text">
                                         <small class="text-danger d-inline-block">

@@ -36,7 +36,7 @@ exports.updateData = updateData;
 function getBlogDataByOrder(orderType = "id", blog_type = "", page = 1, pageSize = 5) {
     let whereStr = "";
     if (blog_type) {
-        whereStr = `where blog_type='${blog_type}'`;
+        whereStr = `where blog_type=${blog_type}`;
     }
     return (0, sqlTool_1.doSqlParam)(`select id,title,blog_type,read_,introduction,img,create_time from blogs ${whereStr} order by ${orderType} DESC limit ${(page - 1) * pageSize},${pageSize}`, []);
 }

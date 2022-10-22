@@ -2,16 +2,23 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const blog_1 = require("../model/blog");
 const util_1 = require("../tool/util");
+// 创建博客分类的枚举类型
+var BLOG_TYPE;
+(function (BLOG_TYPE) {
+    BLOG_TYPE[BLOG_TYPE["\u6280\u672F"] = 1] = "\u6280\u672F";
+    BLOG_TYPE[BLOG_TYPE["\u968F\u7B14"] = 2] = "\u968F\u7B14";
+    BLOG_TYPE[BLOG_TYPE["\u7B14\u8BB0"] = 3] = "\u7B14\u8BB0";
+})(BLOG_TYPE || (BLOG_TYPE = {}));
 async function default_1(app) {
     // 首页
     let newData = await (0, blog_1.getBlogDataByOrder)();
     // console.log(newData)
     let hotData = await (0, blog_1.getBlogDataByOrder)("read_");
     // 热门技术博客
-    let hotData1 = await (0, blog_1.getBlogDataByOrder)("read_", "技术");
+    let hotData1 = await (0, blog_1.getBlogDataByOrder)("read_", '1');
     // console.log(hotData1)
     // 热门随笔博客
-    let hotData2 = await (0, blog_1.getBlogDataByOrder)("read_", "随笔");
+    let hotData2 = await (0, blog_1.getBlogDataByOrder)("read_", '2');
     app.get('/', (req, res) => {
         res.render('index.html', {
             title: "前端博客-专业前端的个人博客",
@@ -22,7 +29,8 @@ async function default_1(app) {
             hotData1: hotData1.data,
             hotData2: hotData2.data,
             formatDate: util_1.formatDate,
-            active: "index"
+            active: "index",
+            BLOG_TYPE
         });
     });
     app.get('/:typename/article.html', async (req, res) => {
@@ -30,16 +38,16 @@ async function default_1(app) {
         const { typename } = req.params;
         // console.log(typename)
         // 热门技术博客
-        let hotData1 = await (0, blog_1.getBlogDataByOrder)("read_", "技术");
+        let hotData1 = await (0, blog_1.getBlogDataByOrder)("read_", "1");
         // 热门随笔博客
-        let hotData2 = await (0, blog_1.getBlogDataByOrder)("read_", "随笔");
+        let hotData2 = await (0, blog_1.getBlogDataByOrder)("read_", "2");
         // 根据博客id读取对应博客分页数据
         const blogData = await (0, blog_1.getBlogDataByOrder)("id", typename, 1, 3);
         // console.log(blogData)
         // 查询3个分类下面博客的数量
-        const count1 = await (0, blog_1.getBlogDataByOrderCount)("'技术'");
-        const count2 = await (0, blog_1.getBlogDataByOrderCount)("'随笔'");
-        const count3 = await (0, blog_1.getBlogDataByOrderCount)("'笔记'");
+        const count1 = await (0, blog_1.getBlogDataByOrderCount)("1");
+        const count2 = await (0, blog_1.getBlogDataByOrderCount)("2");
+        const count3 = await (0, blog_1.getBlogDataByOrderCount)("3");
         res.render('article.html', {
             title: "前端博客-专业前端的个人博客",
             keywords: "前端博客,专业前端博客,前端技术博客",
@@ -52,7 +60,8 @@ async function default_1(app) {
             total2: count2.data[0].total,
             total3: count3.data[0].total,
             formatDate: util_1.formatDate,
-            blogType: typename
+            blogType: BLOG_TYPE[Number(typename)],
+            BLOG_TYPE
         });
     });
     app.get('/details.html', (req, res) => {

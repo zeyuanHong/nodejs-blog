@@ -36,7 +36,7 @@ async function handleFun() {
     id bigint primary key auto_increment,
     email varchar(100) not null,
     password varchar(20) not null,
-    nick varchar(10) not null,
+    nick varchar(100) not null,
     avatar varchar(255),
     score int default 0,
     introduction varchar(500)

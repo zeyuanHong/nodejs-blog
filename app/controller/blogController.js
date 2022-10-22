@@ -104,5 +104,16 @@ function default_1(app, direname) {
         });
         res.json({ success: true, message: "删除成功" });
     });
+    // 根据博客分类和页码返回博客数据
+    app.get("/api/getDataByType", async function (req, res) {
+        const { blog_type, page } = req.query; // req.query获取查询参数
+        // page是字符串 Number(page)转number如果为NaN则默认取第1页数据
+        const { success, data } = await (0, blog_1.getBlogDataByOrder)("id", String(blog_type), Number(page), 2);
+        if (!success) {
+            res.json({ success: false, message: data.message });
+            return;
+        }
+        res.json({ success: true, data });
+    });
 }
 exports.default = default_1;

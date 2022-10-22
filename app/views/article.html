@@ -55,6 +55,7 @@
                 <!-- 分类导航结束 -->
                 <!-- 文章列表 -->
                 <article class="mt-3 bg-white shandow-sm p-3 rounded">
+                    <section id="main">
                     <% blogData.forEach(function(item) { %>
                     <!-- 文章卡片  -->
                     <div class="card mb-3 p-2 shadow-sm mt-2">
@@ -90,6 +91,7 @@
                         </div>
                     </div>
                     <% }) %>
+                </section>
                     <!-- 文章卡片结束 -->
                     <!-- 分页开始 -->
                     <div class="d-flex justify-content-center">
@@ -149,9 +151,14 @@
         </div>
     </div>
 
+    
+     <!-- 把博客分类数据的总条数放入一个隐藏元素，方便js读取该值。 -->
+    <span hidden id="total"><%= total %></span>
+    <span hidden id="typename"><%= typename %></span>
     <!-- 底部 -->
     <%- include("./common/footer.html") %>
     <!-- 加载分页的js -->
+    <script src="/static/js/tool.js" defer></script>
     <script src="/static/js/list.js" defer></script>
 </body>
 

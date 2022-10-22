@@ -665,3 +665,8 @@ video {
     min-height: 143px;
 }
 
+/* 博客正文最大宽度 */
+.detail-content img{
+    max-width: 100%;
+}
+

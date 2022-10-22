@@ -11,6 +11,7 @@ const middleArea_1 = __importDefault(require("./middleArea"));
 const pageController_1 = __importDefault(require("./controller/pageController"));
 const usersController_1 = __importDefault(require("./controller/usersController"));
 const blogController_1 = __importDefault(require("./controller/blogController"));
+const articleController_1 = __importDefault(require("./controller/articleController"));
 let app = (0, express_1.default)();
 // 1. 设置模板引擎
 app.set('views', __dirname + '/views'); // 设置视图文件所在的目录，目录文件存在views目录
@@ -26,6 +27,7 @@ app.use(multer({ dest: "/tmp" }).array("file"));
 (0, pageController_1.default)(app);
 (0, usersController_1.default)(app);
 (0, blogController_1.default)(app, __dirname); // __dirname 获取当前文件运行目录传入博客控制器，方便上传文件设置存放路径
+(0, articleController_1.default)(app);
 app.listen(3080, function () {
     console.log("server start at port 3080");
 });

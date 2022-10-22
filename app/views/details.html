@@ -17,215 +17,77 @@
                 <!-- 顶部的当前位置 -->
                 <div class="bg-white p-1 pe-2 rounded">
                     <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';">
-                        <ol class="breadcrumb m-0 justify-content-end color-153">
+                        <ol class="breadcrumb m-0 color-153">
                             <li class="me-2">当前位置:</li>
-                            <li class="breadcrumb-item"><a href="/static/index.html"
+                            <li class="breadcrumb-item"><a href="/"
                                     class="no-decoration color-153 no-hover-color">首页</a></li>
-                            <li class="breadcrumb-item"><a href="/static/article.html"
-                                    class="no-decoration color-153 no-hover-color">文章</a></li>
-                            <li class="breadcrumb-item color-153" aria-current="page">js</li>
+                            <li class="breadcrumb-item">
+                                <a class="no-decoration color-153 no-hover-color" 
+                                    href="/<%= blogData.blog_type  %>/article.html">
+                                    <%= BLOG_TYPE[blogData.blog_type] %>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item color-153" aria-current="page"><%= blogData.title  %></li>
                         </ol>
                     </nav>
                 </div>
                 <!-- 顶部当前位置结束 -->
                 <!-- 分类导航 -->
-                <div class="mt-3">
-                    <button type="button" class="btn btn-light">全部 <span class="badge bg-success">9</span></button>
-                    <button type="button" class="btn btn-light">CSS <span class="badge bg-success">1</span></button>
-                    <button type="button" class="btn btn-light">HTML <span class="badge bg-success">5</span></button>
-                    <button type="button" class="btn btn-light">SEO <span class="badge bg-success">1</span></button>
-                    <button type="button" class="btn btn-success">JS <span
-                            class="badge bg-light text-dark">2</span></button>
-                </div>
+                
                 <!-- 分类导航结束 -->
                 <!-- 文字区域 -->
-                <article class="mt-3 bg-white shandow-sm p-3 rounded">
-                    <div class="border-bottom text-center">
-                        <h1 class="fs-4">jQuery简单的基础操作</h1>
+                <main class="mt-3 bg-white shandow-sm p-3 rounded">
+                    <section class="border-bottom text-center">
+                        <h1 class="fs-4"><%= blogData.title  %></h1>
                         <p class="text-secondary">
-                            <span class="iconfont icon-rili"></span>：2022-03-31&nbsp;&nbsp;
-                            <span class="iconfont icon-idcard"></span>：百度文库&nbsp;&nbsp;
-                            <span class="iconfont icon-tongji"></span>：87
+                            <span class="iconfont icon-rili"></span>：<%= formatDate(blogData.create_time)  %> &nbsp;&nbsp;
+                            <span class="iconfont icon-idcard"></span>：<%= blogData.nick  %>&nbsp;&nbsp;
+                            <span class="iconfont icon-tongji"></span>：<%= blogData.read_  %>次浏览
                         </p>
-                    </div>
+                    </section>
                     <!-- 具体文章 -->
-                    <div>
+                    <section class="detail-content">
                         <!-- 段落一 -->
-                        <p style="white-space: normal;"><span style="font-size: 18px;"><span
-                                    style="color: rgb(255, 0, 0);">1 . jQuery动画效果，隐藏和显示。</span></span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54); font-size: 14px; background-color: rgb(255, 255, 255);"><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(54, 54, 54); font-size: 14px; background-color: rgb(255, 255, 255);">两个方法：hide()"隐藏"&nbsp;
-                                &nbsp;&nbsp; &nbsp;show()"显示"</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);"><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(46, 139, 87);">&lt;p&gt;JQuery动画效果，隐藏和显示&lt;/p&gt;<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&lt;input
-                                type="button" value="隐藏" id="button1"&gt;<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&lt;input
-                                type="button" value="显示" id="button2"&gt;<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;"><br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&lt;script&gt;<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;$(document).ready(function(){<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$("#button1").click(function(){<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; $("p").hide();<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;})<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$("#button2").click(function() {<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; $("p").hide();<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;})<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;})<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;
-                                &lt;/script&gt;</span><span style="color: rgb(46, 139, 87);"><br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;"></span><span
-                                style="color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);">语法：$(selector).hide(speed.callback)</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54); font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);">语法：$(selector).show(speed.callback)</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);">callback参数：是隐藏或显示完成后执行的函数名称。</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);"><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(46, 139, 87);">$(document).ready(function(){<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$("#button1").click(function(){<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; $("p").hide(500);<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; alert("恭喜你，显示完成")<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;})<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$("#button2").click(function() {<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; $("p").show(200,function(){<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;alert("恭喜你，显示完成")<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; })<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;}</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54); font-size: 14px; background-color: rgb(255, 255, 255);"><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);">语法：$(selector).toggle(speed.callback)</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);">speed参数规定参数隐藏和显示的速度，取值为"show""fast".毫秒（1秒等于1000毫秒）</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);">callback参数：是隐藏或显示完成后执行的函数名称。</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);"><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(46, 139, 87);">$("#button3").click(function() {<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;$("p").toggle(1000,function(){<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;$("p").css({color:"yellow"})<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;})</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54); font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="font-size: 18px;"><span style="color: rgb(255, 0, 0);"><br
-                                        style="overflow-wrap: break-word; margin: 0px; padding: 0px;"></span></span><span
-                                style="font-size: 18px;"></span></p>
-                        <!-- 段落二 -->
-                        <p style="white-space: normal;"><span style="font-size: 18px;"><span
-                                    style="color: rgb(255, 0, 0);">1 . jQuery动画效果，隐藏和显示。</span></span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54); font-size: 14px; background-color: rgb(255, 255, 255);"><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(54, 54, 54); font-size: 14px; background-color: rgb(255, 255, 255);">两个方法：hide()"隐藏"&nbsp;
-                                &nbsp;&nbsp; &nbsp;show()"显示"</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);"><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(46, 139, 87);">&lt;p&gt;JQuery动画效果，隐藏和显示&lt;/p&gt;<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&lt;input
-                                type="button" value="隐藏" id="button1"&gt;<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&lt;input
-                                type="button" value="显示" id="button2"&gt;<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;"><br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&lt;script&gt;<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;$(document).ready(function(){<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$("#button1").click(function(){<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; $("p").hide();<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;})<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$("#button2").click(function() {<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; $("p").hide();<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;})<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;})<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;
-                                &lt;/script&gt;</span><span style="color: rgb(46, 139, 87);"><br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;"></span><span
-                                style="color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);">语法：$(selector).hide(speed.callback)</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54); font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);">语法：$(selector).show(speed.callback)</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);">callback参数：是隐藏或显示完成后执行的函数名称。</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);"><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(46, 139, 87);">$(document).ready(function(){<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$("#button1").click(function(){<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; $("p").hide(500);<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; alert("恭喜你，显示完成")<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;})<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;$("#button2").click(function() {<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; $("p").show(200,function(){<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;alert("恭喜你，显示完成")<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; })<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;}</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54); font-size: 14px; background-color: rgb(255, 255, 255);"><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);">语法：$(selector).toggle(speed.callback)</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);">speed参数规定参数隐藏和显示的速度，取值为"show""fast".毫秒（1秒等于1000毫秒）</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);">callback参数：是隐藏或显示完成后执行的函数名称。</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);  font-size: 14px; background-color: rgb(255, 255, 255);"><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54);   font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="color: rgb(46, 139, 87);">$("#button3").click(function() {<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;$("p").toggle(1000,function(){<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;$("p").css({color:"yellow"})<br
-                                    style="overflow-wrap: break-word; margin: 0px; padding: 0px;">&nbsp; &nbsp;&nbsp;
-                                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;})</span><br
-                                style="overflow-wrap: break-word; margin: 0px; padding: 0px; color: rgb(54, 54, 54); font-size: 14px; background-color: rgb(255, 255, 255);"><span
-                                style="font-size: 18px;"><span style="color: rgb(255, 0, 0);"><br
-                                        style="overflow-wrap: break-word; margin: 0px; padding: 0px;"></span></span><span
-                                style="font-size: 18px;"></span></p>
-                        <!-- 文章底部 -->
-                        <div class="text-secondary lh-2">
-                            <p>上一篇：前端中经常出现的算法总结</p>
-                            <p>下一篇：没有了！</p>
+                        <%- blogData.content  %>
+                    </section>
+                    <!-- 文章底部 -->
+                    <section class="text-secondary lh-2">
+                        <% if(preData){ %>
+                            <p><a class="no-decoration color-153 no-hover-color" 
+                                href="/<%= preData.id %>/details.html">上一篇:<%= preData.title %>
+                            </a></p>
+                        <% } %>
+                        <% if(nextData){ %>
+                             <p><a class="no-decoration color-153 no-hover-color" 
+                                 href="/<%= nextData.id %>/details.html">下一篇:<%= nextData.title %>
+                             </a></p>
+                           <% } %>
+                     </section>
+                    <!-- 评论区域 -->
+                    <article>
+                        <nav>
+                          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                              type="button" role="tab" aria-controls="nav-home" aria-selected="true">评论</button>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <p class="my-1"><span class="text-black-50">nick (2022-2-2):</span>xxxxxx</p>
+                            <p class="my-1"><span class="text-black-50">nick (2022-2-2):</span>xxxxxx</p>
+                            <p class="my-1"><span class="text-black-50">nick (2022-2-2):</span>xxxxxx</p>
+                          </div>
+                          <div class="mb-3 border-top mt-3">
+                            <label for="articleCon" class="form-label">发布评论</label>
+                            <textarea class="form-control" id="articleCon" rows="3"></textarea>
+                          </div>
+                          <p style="text-align: right;">
+                            <button type="button" id="submit" class="btn btn-success">发布</button>
+                          </p>
                         </div>
-                    </div>
-                </article>
+                      </article>
+                    </main>
                 <!-- 文字区域结束 -->
+
             </div>
             <!-- 主体右边部分 -->
             <div class="col-12 col-md-3 hidden">
@@ -241,198 +103,7 @@
                     <p class="my-2 f-14"><span class="fw-bold">QQ</span>：2029886425</p>
                 </div>
                 <!-- 选项卡 -->
-                <div class="p-2 bg-white shandow-sm rounded mt-3 box-shoadow animate-right-card">
-                    <h5 class="d-flex justify-content-between border-dashed">
-                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link btn-sm bg-light active" id="pills-home-tab"
-                                    data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab"
-                                    aria-controls="pills-home" aria-selected="true">热门文章</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link btn-sm bg-light" id="pills-profile-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-profile" type="button" role="tab"
-                                    aria-controls="pills-profile" aria-selected="false">随笔推荐</button>
-                            </li>
-                        </ul>
-                    </h5>
-
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                            aria-labelledby="pills-home-tab">
-                            <ul class="recommend-list">
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> jQuery简单的基础操作···</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 54次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> 域名解析以及二级域···</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 36次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> 前端中经常出现的算···</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 35次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> 原生JS实现轮播图带···</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 30次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> web前端开发基础环境···</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 28次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> PbootCMS中常见使用···</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 26次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> HTML综合内容</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 21次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> 网站建站教程</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 20次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> 原生js实现tab栏切换···</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 18次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> HTML5新标签和属性</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 15次
-                                        </em>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
-                            aria-labelledby="pills-profile-tab">
-                            <ul class="recommend-list">
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> 深入理解es6···</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 54次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> javascript高级程序设计···</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 36次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> jQuery实现轮播图···</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 35次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> 原生JS实现轮播图带···</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 30次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> web前端开发基础环境···</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 28次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> PbootCMS中常见使用···</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 26次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> HTML综合内容</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 21次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> 网站建站教程</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 20次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> 原生js实现tab栏切换···</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 18次
-                                        </em>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" class="recommend-list-a">
-                                        <span class="text-truncate"> HTML5新标签和属性</span>
-                                        <em>
-                                            <span class="iconfont icon-yanjing"></span> 15次
-                                        </em>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
+                <%- include("./common/rightBlock.html") %>
                 <!-- 关键字搜索 -->
                 <div class="p-2 bg-white shandow-sm rounded mt-3 box-shoadow animate-right-card">
                     <h5 class="d-flex justify-content-between border-dashed pb-2">
@@ -467,6 +138,8 @@
 
     <!-- 底部 -->
     <%- include("./common/footer.html") %>
+    <script src="/static/js/tool.js" defer></script>
+    <script src="/static/js/details.js" defer></script>
 </body>
 
 </html>

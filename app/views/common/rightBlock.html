@@ -20,7 +20,7 @@
             <ul class="recommend-list">
                 <% hotData1.forEach(function(item){ %>
                 <li>
-                    <a href="" class="recommend-list-a">
+                    <a href="/<%= item.id %>/details.html" class="recommend-list-a">
                         <span class="text-truncate"><%= item.title %></span>
                         <em>
                             <span class="iconfont icon-yanjing"></span><%= item.read_ %>次
@@ -36,7 +36,7 @@
             <ul class="recommend-list">
                 <% hotData2.forEach(function(item){ %>
                 <li>
-                    <a href="" class="recommend-list-a">
+                    <a href="/<%= item.id %>/details.html" class="recommend-list-a">
                         <span class="text-truncate"><%= item.title %></span>
                         <em>
                             <span class="iconfont icon-yanjing"></span><%= item.read_ %>次

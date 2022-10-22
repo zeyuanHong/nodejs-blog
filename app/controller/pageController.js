@@ -67,8 +67,32 @@ async function default_1(app) {
             typename
         });
     });
-    app.get('/details.html', (req, res) => {
-        res.render('details.html');
+    app.get('/:typename/details.html', async (req, res) => {
+        const { typename } = req.params;
+        // 热门技术博客
+        let hotData1 = await (0, blog_1.getBlogDataByOrder)("read_", "1");
+        // 热门随笔博客
+        let hotData2 = await (0, blog_1.getBlogDataByOrder)("read_", "2");
+        // 根据id查询博客的数据
+        const blogData = await (0, blog_1.getDataOneAndUser)(typename);
+        // 上一条
+        const preData = await (0, blog_1.getDataPreOrNext)(typename, true);
+        // 下一条数据
+        const nextData = await (0, blog_1.getDataPreOrNext)(typename);
+        res.render('details.html', {
+            title: "前端博客-专业前端的个人博客",
+            keywords: "前端博客,专业前端博客,前端技术博客",
+            description: "前端博客-专业前端的个人博客",
+            active: "",
+            hotData1: hotData1.data,
+            hotData2: hotData2.data,
+            BLOG_TYPE,
+            formatDate: util_1.formatDate,
+            typename,
+            blogData: blogData.data[0],
+            preData: preData.data[0],
+            nextData: nextData.data[0]
+        });
     });
     /*  app.get('/notes.html', (req: Request, res: Response) => {
          res.render('notes.html')

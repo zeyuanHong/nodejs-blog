@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getBlogDataByOrderCount = exports.getBlogDataByOrder = exports.updateData = exports.getDataOne = exports.getDataTotal = exports.getDataList = exports.delData = exports.saveData = void 0;
+exports.getDataPreOrNext = exports.getDataOneAndUser = exports.getBlogDataByOrderCount = exports.getBlogDataByOrder = exports.updateData = exports.getDataOne = exports.getDataTotal = exports.getDataList = exports.delData = exports.saveData = void 0;
 const sqlTool_1 = require("../tool/sqlTool");
 // 添加数据
 function saveData(blog) {
@@ -50,3 +50,18 @@ function getBlogDataByOrderCount(blog_type = "") {
     return (0, sqlTool_1.doSqlParam)(`select count(id) as total from blogs ${whereStr}`, []);
 }
 exports.getBlogDataByOrderCount = getBlogDataByOrderCount;
+// 读取博客详情和用户相关信息
+function getDataOneAndUser(id) {
+    return (0, sqlTool_1.doSqlParam)(`select blogs.*,users.nick from blogs,users where blogs.uid=users.id and blogs.id=${id}`, []);
+}
+exports.getDataOneAndUser = getDataOneAndUser;
+// 读取博客上一条或下一条的数据
+function getDataPreOrNext(id, isPre = false) {
+    // 上一篇或者下一篇是读取一条小于当前id或者大于当前id的数据
+    let str = `select id,title from blogs where id>${id} limit 1`;
+    if (isPre) { // 上一条数据
+        str = `select id,title from blogs where id<${id} order by id desc limit 1`;
+    }
+    return (0, sqlTool_1.doSqlParam)(str, []);
+}
+exports.getDataPreOrNext = getDataPreOrNext;

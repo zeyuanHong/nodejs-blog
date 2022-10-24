@@ -17,6 +17,7 @@ app.engine('html', ejs.__express); // 设置模板引擎为html，html里面可�
 
 // 2. 设置静态资源目录
 app.use('/static',express.static(__dirname+'/static'))
+app.use("/admin",express.static(__dirname+"/build"));// 设置后台管理系统静态资源目录
 
 // 3. 解析post数据
 app.use(bodyParser.json({limit:'50mb'})) // 解析json数据,limit限制上传文件大小
@@ -29,6 +30,7 @@ middleArea(app)
 pageController(app)
 usersController(app)
 blogController(app,__dirname) // __dirname 获取当前文件运行目录传入博客控制器，方便上传文件设置存放路径
+
 articleController(app)
 app.listen(3080,function(){ // 绑定端口，启动服务器
   console.log("server start at port 3080");

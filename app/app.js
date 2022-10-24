@@ -18,6 +18,7 @@ app.set('views', __dirname + '/views'); // 设置视图文件所在的目录，�
 app.engine('html', ejs.__express); // 设置模板引擎为html，html里面可以嵌入ejs语法
 // 2. 设置静态资源目录
 app.use('/static', express_1.default.static(__dirname + '/static'));
+app.use("/admin", express_1.default.static(__dirname + "/build")); // 设置后台管理系统静态资源目录
 // 3. 解析post数据
 app.use(bodyParser.json({ limit: '50mb' })); // 解析json数据,limit限制上传文件大小
 // 4. 设置文件上传

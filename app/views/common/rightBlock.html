@@ -1,50 +1,67 @@
+<!-- 联系方式 -->
+<div class="p-2 bg-white shandow-sm rounded box-shoadow animate-right-card animation-delay-100ms">
+    <h5 class="d-flex justify-content-between border-dashed pb-2">
+        <span>联系方式</span>
+    </h5>
+    <p class="my-2 f-14"><span class="fw-bold">名称</span>：哲理源</p>
+    <p class="my-2 f-14"><span class="fw-bold">地址</span>：浙江省宁波市</p>
+    <p class="my-2 f-14"><span class="fw-bold">电话</span>：156xxxx0216</p>
+    <p class="my-2 f-14"><span class="fw-bold">邮箱</span>：hzy@gmail.com</p>
+    <p class="my-2 f-14"><span class="fw-bold">QQ</span>：2029886425</p>
+</div>
+
+<!-- 选项卡 -->
 <div class="p-2 bg-white shandow-sm rounded mt-3 box-shoadow animate-right-card">
     <h5 class="d-flex justify-content-between border-dashed">
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link btn-sm bg-light active" id="pills-home-tab"
-                    data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab"
-                    aria-controls="pills-home" aria-selected="true">热门技术</button>
+                <button class="nav-link btn-sm bg-light active" id="pills-home-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                    aria-selected="true">热门技术</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link btn-sm bg-light" id="pills-profile-tab"
-                    data-bs-toggle="pill" data-bs-target="#pills-profile" type="button"
-                    role="tab" aria-controls="pills-profile" aria-selected="false">随笔推荐</button>
+                <button class="nav-link btn-sm bg-light" id="pills-profile-tab" data-bs-toggle="pill"
+                    data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                    aria-selected="false">随笔推荐</button>
             </li>
         </ul>
     </h5>
 
     <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-            aria-labelledby="pills-home-tab">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <ul class="recommend-list">
                 <% hotData1.forEach(function(item){ %>
-                <li>
-                    <a href="/<%= item.id %>/details.html" class="recommend-list-a">
-                        <span class="text-truncate"><%= item.title %></span>
-                        <em>
-                            <span class="iconfont icon-yanjing"></span><%= item.read_ %>次
-                        </em>
-                    </a>
-                </li>
-                <% }) %>
+                    <li>
+                        <a href="/<%= item.id %>/details.html" class="recommend-list-a">
+                            <span class="text-truncate">
+                                <%= item.title %>
+                            </span>
+                            <em>
+                                <span class="iconfont icon-yanjing"></span>
+                                <%= item.read_ %>次
+                            </em>
+                        </a>
+                    </li>
+                    <% }) %>
 
             </ul>
         </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
-            aria-labelledby="pills-profile-tab">
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
             <ul class="recommend-list">
                 <% hotData2.forEach(function(item){ %>
-                <li>
-                    <a href="/<%= item.id %>/details.html" class="recommend-list-a">
-                        <span class="text-truncate"><%= item.title %></span>
-                        <em>
-                            <span class="iconfont icon-yanjing"></span><%= item.read_ %>次
-                        </em>
-                    </a>
-                </li>
-                
-                <% }) %>
+                    <li>
+                        <a href="/<%= item.id %>/details.html" class="recommend-list-a">
+                            <span class="text-truncate">
+                                <%= item.title %>
+                            </span>
+                            <em>
+                                <span class="iconfont icon-yanjing"></span>
+                                <%= item.read_ %>次
+                            </em>
+                        </a>
+                    </li>
+
+                    <% }) %>
             </ul>
         </div>
     </div>

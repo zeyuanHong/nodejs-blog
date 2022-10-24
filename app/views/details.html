@@ -72,10 +72,13 @@
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
                           <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                            <p class="my-1"><span class="text-black-50">nick (2022-2-2):</span>xxxxxx</p>
-                            <p class="my-1"><span class="text-black-50">nick (2022-2-2):</span>xxxxxx</p>
-                            <p class="my-1"><span class="text-black-50">nick (2022-2-2):</span>xxxxxx</p>
+                            <!-- 评论显示区 -->
                           </div>
+                          <!-- 分页开始 -->
+                          <div class="d-flex justify-content-center">
+                            <div class="m-style" id="pagination"></div>
+                          </div>
+                            <!-- 分页结束 -->
                           <div class="mb-3 border-top mt-3">
                             <label for="articleCon" class="form-label">发布评论</label>
                             <textarea class="form-control" id="articleCon" rows="3"></textarea>
@@ -92,50 +95,15 @@
             <!-- 主体右边部分 -->
             <div class="col-12 col-md-3 hidden">
                 <!-- 联系方式 -->
-                <div class="p-2 bg-white shandow-sm rounded box-shoadow animate-right-card">
-                    <h5 class="d-flex justify-content-between border-dashed pb-2">
-                        <span>联系方式</span>
-                    </h5>
-                    <p class="my-2 f-14"><span class="fw-bold">名称</span>：哲理源</p>
-                    <p class="my-2 f-14"><span class="fw-bold">地址</span>：浙江省宁波市</p>
-                    <p class="my-2 f-14"><span class="fw-bold">电话</span>：156xxxx0216</p>
-                    <p class="my-2 f-14"><span class="fw-bold">邮箱</span>：hzy@gmail.com</p>
-                    <p class="my-2 f-14"><span class="fw-bold">QQ</span>：2029886425</p>
-                </div>
                 <!-- 选项卡 -->
                 <%- include("./common/rightBlock.html") %>
-                <!-- 关键字搜索 -->
-                <div class="p-2 bg-white shandow-sm rounded mt-3 box-shoadow animate-right-card">
-                    <h5 class="d-flex justify-content-between border-dashed pb-2">
-                        <span>关键字搜索</span>
-                    </h5>
-                    <!-- 搜索 -->
-                    <div class="search-body mt-2">
-                        <!-- 搜索-->
-                        <form class="form-inline" action="javascript:;" method="get">
-                            <div class="form-group">
-                                <input type="text" name="keyword" class="form-control" placeholder="请输入关键字">
-                                <button type="submit" class="btn btn-success">搜索</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+               
                 <!-- 关于 -->
-                <div class="p-2 bg-white shandow-sm rounded mt-3 box-shoadow animate-right-card">
-                    <h5 class="d-flex justify-content-between border-dashed pb-2">
-                        <span>关于</span>
-                    </h5>
-                    <p class="my-2 f-14"><span class="fw-bold">博客名称</span>：哲理源博客</p>
-                    <p class="my-2 f-14"><span class="fw-bold">开博时间</span>：2022-xx-xx</p>
-                    <p class="my-2 f-14"><span class="fw-bold">后台系统</span>：xxx</p>
-                    <p class="my-2 f-14"><span class="fw-bold">文章统计</span>：13篇 <a href="javascript:;"
-                            class="active-red no-decoration">随笔</a> |
-                        9篇 <a href="javascript:;" class="active-red no-decoration">文章</a> </p>
-                </div>
+                <%- include("./common/info.html") %>
             </div>
         </div>
     </div>
-
+    <span hidden id="id"><%= id %></span>
     <!-- 底部 -->
     <%- include("./common/footer.html") %>
     <script src="/static/js/tool.js" defer></script>

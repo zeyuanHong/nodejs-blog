@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDataPreOrNext = exports.getDataOneAndUser = exports.getBlogDataByOrderCount = exports.getBlogDataByOrder = exports.updateData = exports.getDataOne = exports.getDataTotal = exports.getDataList = exports.delData = exports.saveData = void 0;
+exports.getBlogListByKey = exports.getDataPreOrNext = exports.getDataOneAndUser = exports.getBlogDataByOrderCount = exports.getBlogDataByOrder = exports.updateData = exports.getDataCount = exports.getDataOne = exports.getDataTotal = exports.getDataList = exports.delData = exports.saveData = void 0;
 const sqlTool_1 = require("../tool/sqlTool");
 // 添加数据
 function saveData(blog) {
@@ -27,6 +27,11 @@ function getDataOne(id) {
     return (0, sqlTool_1.doSqlParam)(`select * from blogs where id=${id}`, []);
 }
 exports.getDataOne = getDataOne;
+// 读取博客数量
+function getDataCount() {
+    return (0, sqlTool_1.doSqlParam)(`select count(*) as blogTotal from blogs`, []);
+}
+exports.getDataCount = getDataCount;
 // 更新博客
 function updateData(blog) {
     return (0, sqlTool_1.doSqlParam)(`update blogs set title=?,introduction=?,img=?,content=?,blog_type=? where id=?`, [blog.title, blog.introduction, blog.img, blog.content, blog.blog_type, blog.id]);
@@ -65,3 +70,8 @@ function getDataPreOrNext(id, isPre = false) {
     return (0, sqlTool_1.doSqlParam)(str, []);
 }
 exports.getDataPreOrNext = getDataPreOrNext;
+// 根据关键词搜索博客数量
+function getBlogListByKey(key = "") {
+    return (0, sqlTool_1.doSqlParam)(`select id,title,read_,blog_type,introduction,img,create_time from blogs where title like ?`, [`%${key}%`]);
+}
+exports.getBlogListByKey = getBlogListByKey;

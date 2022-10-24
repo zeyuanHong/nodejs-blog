@@ -1,6 +1,6 @@
 // 列表分类展示
 const total = Number($("#total").text());
-const pageSize = 2; // 每页显示数据条数
+const pageSize = 5; // 每页显示数据条数
 const blog_type = $("#typename").text(); // 获取博客分类
 const BLOG_TYPE = {
     1: "技术",
@@ -11,7 +11,6 @@ const BLOG_TYPE = {
 $('.box').pagination({
     pageCount: Math.ceil(total / pageSize), // 总页数
     totalData: total, // 数据总数
-    jump: true,
     callback(page) { // 点击分页的回调函数
         getBlogData(page.getCurrent());
     }

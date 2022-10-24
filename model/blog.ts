@@ -27,6 +27,11 @@ export function getDataOne(id: string) {
     return doSqlParam(`select * from blogs where id=${id}`, []);
 }
 
+// 读取博客数量
+export function getDataCount() {
+    return doSqlParam(`select count(*) as blogTotal from blogs`, []);
+}
+
 // 更新博客
 export function updateData(blog: Blog) {
     return doSqlParam(`update blogs set title=?,introduction=?,img=?,content=?,blog_type=? where id=?`,
@@ -55,6 +60,7 @@ export function getBlogDataByOrderCount(blog_type: string = "") {
 export function getDataOneAndUser(id: string) {
     return doSqlParam(`select blogs.*,users.nick from blogs,users where blogs.uid=users.id and blogs.id=${id}`, []);
 }
+
 // 读取博客上一条或下一条的数据
 export function getDataPreOrNext(id: string, isPre: boolean = false) {
     // 上一篇或者下一篇是读取一条小于当前id或者大于当前id的数据
@@ -63,4 +69,9 @@ export function getDataPreOrNext(id: string, isPre: boolean = false) {
         str = `select id,title from blogs where id<${id} order by id desc limit 1`
     }
     return doSqlParam(str, []);
+}
+
+// 根据关键词搜索博客数量
+export function getBlogListByKey(key: string = "") {
+    return doSqlParam(`select id,title,read_,blog_type,introduction,img,create_time from blogs where title like ?`, [`%${key}%`]);
 }

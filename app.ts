@@ -32,6 +32,6 @@ usersController(app)
 blogController(app,__dirname) // __dirname 获取当前文件运行目录传入博客控制器，方便上传文件设置存放路径
 
 articleController(app)
-app.listen(3080,function(){ // 绑定端口，启动服务器
+app.listen('http://150.158.188.135:3080',function(){ // 绑定端口，启动服务器
   console.log("server start at port 3080");
 })

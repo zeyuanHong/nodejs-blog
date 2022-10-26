@@ -29,6 +29,6 @@ app.use(multer({ dest: "/tmp" }).array("file"));
 (0, usersController_1.default)(app);
 (0, blogController_1.default)(app, __dirname); // __dirname 获取当前文件运行目录传入博客控制器，方便上传文件设置存放路径
 (0, articleController_1.default)(app);
-app.listen(3080, function () {
+app.listen('http://150.158.188.135:3080', function () {
     console.log("server start at port 3080");
 });

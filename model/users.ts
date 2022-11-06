@@ -14,8 +14,13 @@ export function getDataList(page:number){ //获取用户列表
   return doSqlParam(`select * from users order by id DESC limit ${(page-1)*10},10 `,[]);
 }
 
+// 查询用户总数
+export function getUserTotal() {
+  return doSqlParam(`select count(*) as total from users`, []);
+}
+
 export function delData(id:string){ //删除用户
-  return doSqlParam(`delete from users where id=?`,[]);
+  return doSqlParam(`delete from users where id=?`,[id]);
 }
 
 // 更新数据

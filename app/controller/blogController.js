@@ -24,7 +24,7 @@ function default_1(app, direname) {
             res.json({ success: false, message: result.data.message });
             return;
         }
-        let resultTotal = await (0, blog_1.getDataTotal)();
+        let resultTotal = await (0, blog_1.getDataTotal)(); // 获取总条数
         if (!resultTotal.success) {
             res.json({ success: false, message: result.data.message });
             return;

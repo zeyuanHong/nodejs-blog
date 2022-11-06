@@ -27,7 +27,7 @@ export default function (app: Express, direname: string) {
             res.json({ success: false, message: result.data.message })
             return;
         }
-        let resultTotal: any = await getDataTotal()
+        let resultTotal: any = await getDataTotal() // 获取总条数
         if (!resultTotal.success) {
             res.json({ success: false, message: result.data.message })
             return;

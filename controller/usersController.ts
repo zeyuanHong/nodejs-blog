@@ -1,6 +1,6 @@
 import { Express, Request, Response } from "express";
 import { Users } from "../tool/varType";
-import { readLoginData, saveData, getDataList, delData,updateData } from "../model/users";
+import { readLoginData, saveData, getDataList, delData,updateData,getUserTotal } from "../model/users";
 const jwt = require("jsonwebtoken");
 
 // 页面相关的路由，路由就是一个典型的控制器(属于controller层)
@@ -24,7 +24,7 @@ export default function (app: Express) {
         const token = jwt.sign({ id: data[0].id }, "hzyhzy123", {
             expiresIn: 24 * 60 * 60  // 设置token的过期时间
         })
-        res.json({ success: true, data: { email: data[0].email, avatar: data[0].avatar, token } })
+        res.json({ success: true, data: { email: data[0].email, avatar: data[0].avatar,nick:data[0].nick, token } })
 
     })
 
@@ -45,13 +45,19 @@ export default function (app: Express) {
     app.get('/api/getUsers', async (req: Request, res: Response) => {
         const { page } = req.query
         // console.log(user)
-        const { success, data } = await getDataList(Number(page) || 1) //有错误就默认第一页
-        if (!success) {
-            res.json({ success: false, message: data.message })
+        let result = await getDataList(Number(page) || 1) //有错误就默认第一页
+        if (!result.success) {
+            res.json({ success: false, message: result.data.message })
             return;
         }
-        res.json({ success: true, data })
+        let resultTotal:any = await getUserTotal() //用户总数
+        if(!resultTotal.success){
+            res.json({ success: false, message: resultTotal.data.message })
+            return;
+        }
+        res.json({ success: true, data:{data:result.data,total:resultTotal.data[0].total} })
     })
+
 
     // 删除用户
     app.get('/api/delUser', async (req: Request, res: Response) => {
